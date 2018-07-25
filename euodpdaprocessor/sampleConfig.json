@@ -1,0 +1,71 @@
+{
+	"datasets": 
+	[
+		{
+			"name": "EIOPA - Insurance Statistics - Solo Quarterly",
+			"source": 
+			{
+				"type": "CSV",
+				"zipped": "N",
+				"separator": ",",
+				"URL": "https://eiopa.europa.eu/Publications/Insurance%20Statistics/SQ_Own_Funds.csv",
+				"representation": "NUTS",
+				"NUTSColumnNumber": "1",
+				"valueColumnNumber": "5"
+			}
+		},
+		{
+			"name": "AMECO_10: Balances with the Rest of the World (National Accounts)",
+			"source": 
+			{
+				"type": "CSV",
+				"zipped": "Y",
+				"separator": ";",
+				"URL": "http://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco10.zip",
+				"representation": "NUTS",
+				"NUTSColumnNumber": "1",
+				"valueColumnNumber": "6"
+			}
+		},
+		{
+			"name": "Average Revenue per User (ARPU) in the Retail Mobile Market (CSV)",
+			"source": 
+			{
+				"type": "CSV",
+				"zipped": "Y",
+				"separator": ",",
+				"URL": "https://digital-agenda-data.eu/download/digital-agenda-scoreboard-key-indicators.csv.zip",
+				"representation": "NUTS",
+				"NUTSColumnNumber": "3",
+				"valueColumnNumber": "7",
+				"filtersColumnNumbers": "2"
+			}
+		},
+		{
+			"name": "Average Revenue per User (ARPU) in the Retail Mobile Market (SPARQL)",
+			"source": 
+			{
+				"type": "SPARQL",
+				"zipped": "N",
+				"separator": ",",
+				"URL": "http://digital-agenda-data.eu/sparql?query=PREFIX+sdmx-measure%3A+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fsdmx%2F2009%2Fmeasure%23%3E%0APREFIX+dad-prop%3A+%3Chttp%3A%2F%2Fsemantic.digital-agenda-data.eu%2Fdef%2Fproperty%2F%3E%0APREFIX+cube%3A+%3Chttp%3A%2F%2Fpurl.org%2Flinked-data%2Fcube%23%3E%0A%0ASELECT%0A++bif%3Asubseq%28str%28%3Ftime%29%2C+bif%3Astrrchr%28bif%3Areplace%28str%28%3Ftime%29%2C+%27%2F%27%2C+%27%23%27%29%2C+%27%23%27%29+%2B+1%29+as+%3Ftime_period%0A++bif%3Asubseq%28str%28%3FrefArea%29%2C+bif%3Astrrchr%28bif%3Areplace%28str%28%3FrefArea%29%2C+%27%2F%27%2C+%27%23%27%29%2C+%27%23%27%29+%2B+1%29+as+%3Fref_area%0A++bif%3Asubseq%28str%28%3Findic%29%2C+bif%3Astrrchr%28bif%3Areplace%28str%28%3Findic%29%2C+%27%2F%27%2C+%27%23%27%29%2C+%27%23%27%29+%2B+1%29+as+%3Findicator%0A++bif%3Asubseq%28str%28%3Fbrkdwn%29%2C+bif%3Astrrchr%28bif%3Areplace%28str%28%3Fbrkdwn%29%2C+%27%2F%27%2C+%27%23%27%29%2C+%27%23%27%29+%2B+1%29+as+%3Fbreakdown%0A++bif%3Asubseq%28str%28%3Funit%29%2C+bif%3Astrrchr%28bif%3Areplace%28str%28%3Funit%29%2C+%27%2F%27%2C+%27%23%27%29%2C+%27%23%27%29+%2B+1%29+as+%3Funit_measure%0A++str%28%3Fval%29+as+%3Fvalue%0AWHERE+%7B%0A++%3Fs+a+cube%3AObservation+.%0A++%3Fs+dad-prop%3Atime-period+%3Ftime+.%0A++%3Fs+dad-prop%3Aref-area+%3FrefArea+.%0A++%3Fs+dad-prop%3Aindicator+%3Findic+.%0A++%3Fs+dad-prop%3Abreakdown+%3Fbrkdwn+.%0A++%3Fs+dad-prop%3Aunit-measure+%3Funit+.%0A++%3Fs+sdmx-measure%3AobsValue+%3Fval+.%0A++%3Fs+cube%3AdataSet+%3Chttp%3A%2F%2Fsemantic.digital-agenda-data.eu%2Fdataset%2Fdigital-agenda-scoreboard-key-indicators%3E+.%0A++filter+%28%3Findic+%3D+%3Chttp%3A%2F%2Fsemantic.digital-agenda-data.eu%2Fcodelist%2Findicator%2Fi_ia12ave%3E%29%0A%7D%0Aorder+by+%3Ftime_period+%3Fref_area+%3Findicator+%3Fbreakdown+%3Funit_measure&format=text%2Fcsv",
+				"representation": "NUTS",
+				"NUTSColumnNumber": "2",
+				"valueColumnNumber": "6"
+			}
+		},
+		{
+			"name": "Prejudiciary questions from national courts",
+			"source": 
+			{
+				"type": "SPARQL",
+				"zipped": "N",
+				"separator": ",",
+				"URL": "http://publications.europa.eu/webapi/rdf/sparql?query=prefix%20cdm%3A%20%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E%20%20prefix%20authority%3A%20%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fcountry%2F%3E%20%20select%20%20distinct%20%20STRAFTER(str(%3Fcountry)%2C%20str(authority%3A))%20AS%20%3Fcountry%20%20COUNT(%3Ftype)%20AS%20%3Ftype_counter%20%20where%20%7B%20%20%3Fw%20cdm%3Awork_has_resource-type%20%3Ftype.%20%20%3Fw%20cdm%3Acase-law_originates_in_country%20%3Fcountry.%20%20FILTER(%3Ftype%3D%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fresource-type%2FORDER%3E%7C%7C%3Ftype%3D%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fresource-type%2FJUDG%3E)%20%20%7B%3Fw%20cdm%3Acase-law_has_type_procedure_concept_type_procedure%20%3Fproc.%20%20FILTER(regex(str(%3Fproc)%2C%27http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Ffd_100%2FPREJ%27)%7C%7Cregex(str(%3Fproc)%2C%27http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Ffd_100%2FREFER_PREL%27))%20%20%7D%20%20UNION%20%20%7B%20%20%3Fw%20cdm%3Acase-law_has_procjur%20%3Fproc.%20%20FILTER(%3Fproc%3D%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fprocjur%2FREFER_PREL%3E%7C%7C%3Fproc%3D%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fprocjur%2FREFER_PREL_URG%3E)%20%20%7D%20%20%7D%20ORDER%20BY%20%3Fcountry&format=text%2Fcsv",
+				"representation": "NUTS",
+				"NUTSColumnNumber": "1",
+				"valueColumnNumber": "2"
+			}
+		}
+	]
+}

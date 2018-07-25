@@ -1,0 +1,357 @@
+{
+	"type": "FeatureCollection",
+	"features":
+	[
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [14.157712, 48.1558075]
+			},
+			"properties":
+			{
+				"name": "Allhaming Nord",
+				"description": "ASFINAG Service Center",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [15.7967224, 48.1858444]
+			},
+			"properties":
+			{
+				"name": "Kirchstetten",
+				"description": "ASFINAG Service Center",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [11.4818964, 47.05243]
+			},
+			"properties":
+			{
+				"name": "Nößlach",
+				"description": "ASFINAG Service Center",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [15.55708, 48.1760368]
+			},
+			"properties":
+			{
+				"name": "St. Pölten",
+				"description": "ASFINAG Service Center",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [4.35426426, 50.8571129]
+			},
+			"properties":
+			{
+				"name": "Truckparking areas Vlaamse overheid",
+				"description": "Vlaamse overheid",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [5.15059233, 51.0687332]
+			},
+			"properties":
+			{
+				"name": "E313 Tessenderlo Hasselt - Antwerpen",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [3.25356245, 50.8010674]
+			},
+			"properties":
+			{
+				"name": "E17 Marke Antwerpen - Frankrijk",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [4.25658, 50.880455]
+			},
+			"properties":
+			{
+				"name": "E40 Groot-Bijgaarden Brussel - Oostende",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [3.783846, 51.04258]
+			},
+			"properties":
+			{
+				"name": "E17 Gentbrugge Antwerpen - Frankrijk",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [4.583915, 50.71857]
+			},
+			"properties":
+			{
+				"name": "Aire de Bierges 2",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [5.018072, 50.304688]
+			},
+			"properties":
+			{
+				"name": "Aire de Salazine 1",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [8.98465, 45.85035]
+			},
+			"properties":
+			{
+				"name": "Coldrerio",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [8.9763, 45.89483]
+			},
+			"properties":
+			{
+				"name": "Mendrisio",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [8.63335, 46.8473]
+			},
+			"properties":
+			{
+				"name": "Gotthard",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [14.54135, 50.00998]
+			},
+			"properties":
+			{
+				"name": "Újezd u Průhonic",
+				"description": "Road and Motorway Directorate of the Czech Republic",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [14.79166, 49.86042]
+			},
+			"properties":
+			{
+				"name": "Naháč",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [13.99246, 53.39439]
+			},
+			"properties":
+			{
+				"name": "Klockow",
+				"description": "Landesbetrieb Straßenwesen Brandenburg",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [13.99390, 53.39411]
+			},
+			"properties":
+			{
+				"name": "RA A24 km 141,775",
+				"description": "Landesbetrieb Straßenwesen Brandenburg",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [11.379, 55.399]
+			},
+			"properties":
+			{
+				"name": "Antvorskov nord",
+				"description": "Trafikcentret, Niels Juels Gade 13, DK-1022 København K",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [11.758, 55.668]
+			},
+			"properties":
+			{
+				"name": "Arnakke Nord",
+				"description": "Trafikcentret, Niels Juels Gade 13, DK-1022 København K",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [-2.741244, 42.84689]
+			},
+			"properties":
+			{
+				"name": "CTV",
+				"description": "Centro Intermodal de Transporte y Logística de Vitoria-Gasteiz (CTVi)",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [6.0405, 51.95673]
+			},
+			"properties":
+			{
+				"name": "Aalburgen",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [4.308, 51.91891]
+			},
+			"properties":
+			{
+				"name": "Aalkeet",
+				"description": "",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [13.4876728, 60.51448]
+			},
+			"properties":
+			{
+				"name": "Lisskogsbrändan",
+				"description": "Trafikverket",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [16.98458, 61.0068779]
+			},
+			"properties":
+			{
+				"name": "Högbacka",
+				"description": "Trafikverket",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [15.663077, 46.606964]
+			},
+			"properties":
+			{
+				"name": "Dobrenje vzhod",
+				"description": "DARS",
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [13.970188, 45.672184]
+			},
+			"properties":
+			{
+				"name": "Risnik",
+				"description": "DARS",
+			}
+		}
+	]
+}

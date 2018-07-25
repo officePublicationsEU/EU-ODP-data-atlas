@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <title>EU ODP Data Atlas</title>
+        <script  src="//europa.eu/webtools/load.js" type="text/javascript"></script>
+
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet"  href="css/estilos.css">
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+		<script type="text/javascript">		
+		
+		$(document).ready(function(){ // Script del Navegador
+			$("ul.subnavegador").hide();				
+			$("a.desplegable").toggle(
+			  function() { 
+				$(this).parent().find("ul.subnavegador:first").slideDown('fast'); 
+			  },
+			  function() { 
+				$(this).parent().find("ul.subnavegador:first").slideUp('fast'); 
+			  }				
+			);	
+			
+			
+			$('input:radio').change(function(e){
+				 if (e.target.id != "cb4" && e.target.id != "cb9" && e.target.id != "cb4_1" && e.target.id != "cb4_2")
+				 {
+					$('#filters_li').css('display', 'none');
+				 }
+			});
+			
+			$('#cb4').change(function(){
+				var display = this.checked ? 'block' : 'none';
+				$('#filters_li').css('display', display);
+				$('#filters_li').find("ul.subnavegador:first").slideDown('fast');
+				
+			});
+			$('#cb9').change(function(){
+				var display = this.checked ? 'block' : 'none';
+				$('#filters_li').css('display', display);
+				$('#filters_li').find("ul.subnavegador:first").slideDown('fast');
+				
+			});
+			
+		});
+		</script>
+
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css'  /> 
+            
+    </head>
+
+	<body>
+        <div id="container">
+        
+            <div id= "title"> EU ODP Data Atlas <div id="dataSetName"></div><button id="back_atlas">Back to Data Atlas</button></div>
+			            
+            <div class="menu_sup">
+            
+                <button id='help' ><i class="material-icons">help</i></button>   
+                <button id='feedback' ><i class="material-icons">feedback</i></button>   
+                
+            </div>
+
+            <div id="menu">
+
+                <div id= "buscador">
+                    <input type ="text" name = "search" placeholder = "Search datasets...">
+
+                    <button type ="submit" id=search_button><i id="search_icon" class="material-icons">search</i></button>
+
+                </div>
+                
+                <ul class="navegador"> 
+					<li style="margin-bottom: 1em;"><a href="#" class="desplegable" title="Topic name" id="publisher"><b>Browse datasets by subject</b><i class="material-icons">keyboard_arrow_down</i></a>
+                        <ul class="subnavegador checkbox" id="publisher_ul">
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="environment">Environment<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li><a href="https://www.eea.europa.eu/data-and-maps/figures/dmeer-digital-map-of-european-ecological-regions" target="_blank">Digital map of European ecological regions <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('The Digital Map of European Ecological Regions DMEER- delineates and describes ecological distinct areas in Europe, on the basis of climatic, topographic and geobotanical European data, together with the judgement of a large team of experts from several European nature related Institutions and the WWF');"><i class="material-icons info">info</i></button></li>
+									<li>
+										<a href="#" class="desplegable" title="EEA reference grid" id="european_environmental_agency">EEA reference grid<i class="material-icons">keyboard_arrow_down</i></a><button class="b_info" onclick="showInfo('The grid is based on the recommendation at the 1st European Workshop on Reference Grids in 2003 and later INSPIRE geographical grid systems. For each country three vector polygon grid shape files, 1, 10 and 100 km, are available. The grids cover at least country borders - plus 15km buffer - and, where applicable, marine Exclusive Economic Zones v7.0 - plus 15km buffer - (www.vliz.be/vmdcdata/marbound).');"><i class="material-icons info">info</i></button>
+										<ul class="subnavegador">
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/expansion-of-artificial-surfaces" target="_blank">Expansion of artificial surfaces <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/agricultural-land-conversions" target="_blank">Agricultural land conversions <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/woodland-creation" target="_blank">Woodland creation <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+										</ul>
+									</li>
+									<li><a href="https://www.eea.europa.eu/data-and-maps/data/zones-in-relation-to-eu-air-quality-thresholds-6" target="_blank">Zones in relation to EU air quality thresholds <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Member States provide an annual assessment of air quality in comparison to EU air quality thresholds');"><i class="material-icons info">info</i></button></li> 
+									<li><a href="https://land.copernicus.eu/pan-european/corine-land-cover/clc-1990" target="_blank">Corine Land Cover 1990 raster data <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('One of the major tasks undertaken in the framework of the Corine programme has been the establishment of a computerised inventory on the land cover');"><i class="material-icons info">info</i></button></li>
+									<li><a href="https://www.eea.europa.eu/data-and-maps/dashboards/necd-directive-data-viewer" target="_blank">National Emission Ceilings (NEC) Directive Inventory <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Data on emissions of air pollutants (ammonia (NH3), non-methane volatile organic compounds (NMVOC), nitrogen oxides (NOx), particulate matter 2.5 (PM2.5) and sulphur dioxide (SO2)) reported annually by Member States to the European Commission (with copies to EEA) under Directive 2016/2284 of the European Parliament and of the Council on the reduction of national emissions of certain atmospheric pollutants.');"><i class="material-icons info">info</i></button></li>
+									<li>
+										<a href="#" class="desplegable" title="Topic name" id="european_environmental_agency">Hydrodynamics and Sea level rise<i class="material-icons">keyboard_arrow_down</i></a><button class="b_info" onclick="showInfo('This layer provides information at 237 locations along the European coastline');"><i class="material-icons info">info</i></button>
+										<ul class="subnavegador">
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/sea-level-rise" target="_blank">Sea level rise <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/mean-tidal-amplitude" target="_blank">Mean tidal amplitude <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="law">Law<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li><a href="http://fra.europa.eu/en/publications-and-resources/data-and-maps/cps?dataSource=CPS_en_57375&media=png&width=740&topic=group1&question=CPS_NAT_LEG&plot=MAP&subset=NONE&subsetValue=NONE&answer=CPS_NAT_LEG&year=2014" target="_blank">Mapping child protection systems in the EU <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('The European Union Agency for Fundamental Rights (FRA), at the request of the European Commission, conducted research on national child protection systems in the 28 European Union (EU) Member States. It seeks to understand how national child protection systems work and to identify common challenges and promising practices.');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://fra.europa.eu/en/publications-and-resources/data-and-maps/minag?dataSource=MINAG_en_62931&media=png&width=740&topic=group01&question=MINAG_MSR01&plot=MAP&subset=NONE&subsetValue=NONE&answer=MINAG_MSR01&year=2017" target="_blank">Mapping minimum age requirements concerning the rights of the child in the EU <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('The data shows the national legislative provisions on age requirements in various policy areas and domains for protection and participation rights of children.');"><i class="material-icons info">info</i></button</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="science">Science<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li><a href="http://forest.jrc.ec.europa.eu/download/data/species-distribution/" target="_blank">Suitability maps of Carpinus betulus (ForestFocus) <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Suitability maps (raster format: geotiff) of Carpinus betulus, computed using the ForestFocus European dataset of species presence/absence. The adopted suitability model estimates the optimal environmental conditions for European tree species under present and future climates. Available years: 2000, 2020, 2050, 2080. For year 2000 the observed (WorldClim) climate conditions have been used. For years 2020, 2050, 2080 the climate conditions simulated for the climate change scenarios A2 and B2 have been used (by means of the climate models CCCMA, CSIRO, HANDCM3 and of an ensemble model of them).');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://water.jrc.ec.europa.eu/waterportal" target="_blank">Map with the price of water for industry <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Map shows the average cost in a country of water for industrial purposes. The resolution of the map is 5x5km');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://effis.jrc.ec.europa.eu/static/effis_current_situation/public/" target="_blank">Burnt area maps - EFFIS Damage Assessment <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Data produced by the EFFIS Damage Assessment module, aimed to provide assessment of the burnt areas in Europe at the end of each fire season. Maps of burnt areas are derived from the classification of satellite images, outlining forest fires with a final size of at least 50 ha. Since fire events of this size occur mostly in Southern Europe, the extent covered is limited to this area.These maps are further analyzed in conjunction with the Corine Land Cover database (CLC2000) to estimate the damage to forests and other land cover types. Maps are available from the year 2000 onward.The EFFIS Damage Assessment module provides a harmonized system allowing the comparison of fire damages between the different regions of the European Union.');"><i class="material-icons info">info</i></button></li>
+									<li><a href="https://esdac.jrc.ec.europa.eu/content/maps-storing-and-filtering-capacity-soils-europe" target="_blank">Maps of the Storing and Filtering Capacity of Soils in Europe <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('This dataset (2016) contains 10 maps that relate to the soil's storing and filtering capacity in Europe (the EU only): cation storing capacity (STOR_CAPCA), cation filtering capacity (FILT_CAPCA), anion storing capacity (STOR_CAPAN), anion filtering capacity (FILT_CAPAN), solids and pathogenic microorganisms storing capacity (STOR_CAPSO), solids and pathogenic microorganisms filtering capacity (FILT_CAPSO), non-polar organic chemicals storing capacity (STOR_CAPNP), non-polar organic chemicals filtering capacity (FILT_CAPNP), nonaqueous Phase Liquids (NAPL) storing capacity (STOR_NAPL), nonaqueous Phase Liquids (NAPL), filtering capacity (FILT_NAPL). As input, variables from the European Soil Database have been used.');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR272" target="_blank">Reference maps in Bangladesh (2018-03-08) <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Activation time (UTC): 2018-03-08 14:20:00 Event time (UTC): 2018-03-08 00:00:00 Event type: Humanitarian (Population displacement (IDP)). Activation reason: The Danish Emergency Management Agency (DEMA) is planning to build a coordination hub in Bangladesh in relation with Rohingya refugees. The Copernicus EMS Rapid Mapping Service has been triggered to produce Reference Maps based on recent optical satellite imagery that will be used for the initial assessment on the Areas of Interest. Reference maps produced: 5 Delineation maps produced: 0 Grading maps produced: 0. Copernicus Emergency Management Service - Mapping is a service funded by European Commission aimed at providing actors in the management of natural and man-made disasters, in particular Civil Protection Authorities and Humanitarian Aid actors, with mapping products based on satellite imagery.');"><i class="material-icons info">info</i></button></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="publisher_council">Economics<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li>
+										<input type="radio" name="radioPublisher" id="cb1" class="cb" /><label for="cb1">EIOPA - Insurance Statistics - Solo Quarterly</label><a href="#"><button id="b_info_1" class="b_info" onclick="showInfo('<p>Publisher: European Insurance and Occupational Pensions Authority</p><p>The own fund statistics provide an extract of key data items from the Solvency II template S.23.01 (please see the annotated reporting templates available on the EIOPA website to see the full list of reporting templates). For information and explanation of each individual item, please refer to the QRT instruction files.</p><p>URI: https://eiopa.europa.eu/Publications/Insurance%20Statistics/SQ_Own_Funds.csv</p><p>Release Date: 2017-10-04</p>');"><i class="material-icons info">info</i></button></a>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb2" class="cb" /><label for="cb2">AMECO_10: Balances with the Rest of the World (National Accounts)</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Economic and Financial Affairs</p><p>10 Statistics on balances with the rest of the world (national accounts)</p><p>URI: http://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco10.zip</p><p>Release Date: 2017-06-12</p>')"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb3" class="cb" /><label for="cb3">Average Revenue per User (ARPU) in the Retail Mobile Market (CSV)</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Communications Networks, Content and Technology</p><p>Zipped and CSV-formatted entire parent dataset: digital-agenda-scoreboard-key-indicators</p><p>URI: http://digital-agenda-data.eu/download/digital-agenda-scoreboard-key-indicators.csv.zip</p><p>Release Date: 2014-05-22</p>');"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb4" class="cb" /><label for="cb4">Average Revenue per User (ARPU) in the Retail Mobile Market (SPARQL)</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Communications Networks, Content and Technology</p><p>All indicator observations in CSV format. A simple query that returns table-file having a flat structure, with one row for each statistical observation and one column for each dimension or attribute.</p><p>URI: http://data.europa.eu/euodp/en/data/dataset/NaUJDKauIkIWX0YFtDz86Q/resource/4b62ff6a-0789-4295-b882-6652725bcf3e</p><p>Release Date: 2014-05-22</p>');"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb5" class="cb" /><label for="cb5">JSON (geoSON) sample</label><button class="b_info" onclick="showInfo('<p>Publisher: Council of the European Union.</p><p>Each year the Council publishes an annual report on the implementation of regulation 1049/2001 on access to documents. The annual report contains statistical information on the requests for public access received by the Council. With the exception of personal data, information on such requests is public.</p><p>eurovoc domains: European Union, International organisations</p><p>URI: http://data.consilium.europa.eu/def/codi/</p><p>Status: Completed</p><p>Modified Date: 2016-04-25</p><p>Metadata language: English</p>');"><i class="material-icons info">info</i></button>
+									</li>
+								</ul>
+							</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 1em;"><a href="#" class="desplegable" title="Topic name" id="publisher"><b>Browse datasets by publisher</b><i class="material-icons">keyboard_arrow_down</i></a>
+                        <ul class="subnavegador checkbox" id="publisher_ul">
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="european_environmental_agency">European Environmental Agency<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li><a href="https://www.eea.europa.eu/data-and-maps/figures/dmeer-digital-map-of-european-ecological-regions" target="_blank">Digital map of European ecological regions <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('The Digital Map of European Ecological Regions DMEER- delineates and describes ecological distinct areas in Europe, on the basis of climatic, topographic and geobotanical European data, together with the judgement of a large team of experts from several European nature related Institutions and the WWF');"><i class="material-icons info">info</i></button></li>
+									<!--li><a href="https://www.eea.europa.eu/data-and-maps/figures/dmeer-digital-map-of-european-ecological-regions" target="_blank">Elevation map of Europe</a></li>
+									<li><a href="https://www.eea.europa.eu/data-and-maps/figures/share-of-population-living-in" target="_blank">Population density</a></li-->
+									<li>
+										<a href="#" class="desplegable" title="EEA reference grid" id="european_environmental_agency">EEA reference grid<i class="material-icons">keyboard_arrow_down</i></a><button class="b_info" onclick="showInfo('The grid is based on the recommendation at the 1st European Workshop on Reference Grids in 2003 and later INSPIRE geographical grid systems. For each country three vector polygon grid shape files, 1, 10 and 100 km, are available. The grids cover at least country borders - plus 15km buffer - and, where applicable, marine Exclusive Economic Zones v7.0 - plus 15km buffer - (www.vliz.be/vmdcdata/marbound).');"><i class="material-icons info">info</i></button>
+										<ul class="subnavegador">
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/expansion-of-artificial-surfaces" target="_blank">Expansion of artificial surfaces <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/agricultural-land-conversions" target="_blank">Agricultural land conversions <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/woodland-creation" target="_blank">Woodland creation <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+										</ul>
+									</li>
+									<!--li><a href="https://land.copernicus.eu/pan-european/corine-land-cover/clc-2006?tab=mapview" target="_blank">Corine Land Cover 2006 seamless vector data</a></li>
+									<li><a href="https://www.eea.europa.eu/data-and-maps/figures/natura-2000-birds-and-habitat-directives-9" target="_blank">Natura 2000 data - the European network of protected sites</a></li>
+									<li><a href="https://www.eea.europa.eu/themes/industry/industrial-pollution/industrial-pollution-country-profiles-2017/industrial-pollution-profiles-2017" target="_blank">National emissions reported to the UNFCCC and to the EU Greenhouse Gas Monitoring Mechanism</a></li>
+									<li><a href="https://www.eea.europa.eu/data-and-maps/figures/biogeographical-regions-in-europe-2" target="_blank">Biogeographical regions</a></li-->
+									<li><a href="https://www.eea.europa.eu/data-and-maps/data/zones-in-relation-to-eu-air-quality-thresholds-6" target="_blank">Zones in relation to EU air quality thresholds <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Member States provide an annual assessment of air quality in comparison to EU air quality thresholds');"><i class="material-icons info">info</i></button></li> 
+									<li><a href="https://land.copernicus.eu/pan-european/corine-land-cover/clc-1990" target="_blank">Corine Land Cover 1990 raster data <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('One of the major tasks undertaken in the framework of the Corine programme has been the establishment of a computerised inventory on the land cover');"><i class="material-icons info">info</i></button></li>
+									<li><a href="https://www.eea.europa.eu/data-and-maps/dashboards/necd-directive-data-viewer" target="_blank">National Emission Ceilings (NEC) Directive Inventory <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Data on emissions of air pollutants (ammonia (NH3), non-methane volatile organic compounds (NMVOC), nitrogen oxides (NOx), particulate matter 2.5 (PM2.5) and sulphur dioxide (SO2)) reported annually by Member States to the European Commission (with copies to EEA) under Directive 2016/2284 of the European Parliament and of the Council on the reduction of national emissions of certain atmospheric pollutants.');"><i class="material-icons info">info</i></button></li>
+									<li>
+										<a href="#" class="desplegable" title="Topic name" id="european_environmental_agency">Hydrodynamics and Sea level rise<i class="material-icons">keyboard_arrow_down</i></a><button class="b_info" onclick="showInfo('This layer provides information at 237 locations along the European coastline');"><i class="material-icons info">info</i></button>
+										<ul class="subnavegador">
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/sea-level-rise" target="_blank">Sea level rise <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+											<li><a href="https://www.eea.europa.eu/data-and-maps/figures/mean-tidal-amplitude" target="_blank">Mean tidal amplitude <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a></li>
+										</ul>
+									</li>
+									<!--li><a href="https://www.eea.europa.eu/data-and-maps/data/zones-in-relation-to-eu-air-quality-thresholds-6" target="_blank">Zones in relation to EU air quality thresholds</a></li>
+									<li><a href="https://www.eea.europa.eu/themes/industry/industrial-pollution/industrial-pollution-country-profiles-2017/industrial-pollution-profiles-2017" target="_blank">National emissions reported to the Convention on Long-range Transboundary Air Pollution (LRTAP Convention)</a></li-->
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="fundamental_rights_agency">Fundamental Rights Agency<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li><a href="http://fra.europa.eu/en/publications-and-resources/data-and-maps/cps?dataSource=CPS_en_57375&media=png&width=740&topic=group1&question=CPS_NAT_LEG&plot=MAP&subset=NONE&subsetValue=NONE&answer=CPS_NAT_LEG&year=2014" target="_blank">Mapping child protection systems in the EU <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('The European Union Agency for Fundamental Rights (FRA), at the request of the European Commission, conducted research on national child protection systems in the 28 European Union (EU) Member States. It seeks to understand how national child protection systems work and to identify common challenges and promising practices.');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://fra.europa.eu/en/publications-and-resources/data-and-maps/minag?dataSource=MINAG_en_62931&media=png&width=740&topic=group01&question=MINAG_MSR01&plot=MAP&subset=NONE&subsetValue=NONE&answer=MINAG_MSR01&year=2017" target="_blank">Mapping minimum age requirements concerning the rights of the child in the EU <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('The data shows the national legislative provisions on age requirements in various policy areas and domains for protection and participation rights of children.');"><i class="material-icons info">info</i></button</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="joint_research_centre">Joint Research Centre<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li><a href="http://forest.jrc.ec.europa.eu/download/data/species-distribution/" target="_blank">Suitability maps of Carpinus betulus (ForestFocus) <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Suitability maps (raster format: geotiff) of Carpinus betulus, computed using the ForestFocus European dataset of species presence/absence. The adopted suitability model estimates the optimal environmental conditions for European tree species under present and future climates. Available years: 2000, 2020, 2050, 2080. For year 2000 the observed (WorldClim) climate conditions have been used. For years 2020, 2050, 2080 the climate conditions simulated for the climate change scenarios A2 and B2 have been used (by means of the climate models CCCMA, CSIRO, HANDCM3 and of an ensemble model of them).');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://water.jrc.ec.europa.eu/waterportal" target="_blank">Map with the price of water for industry <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Map shows the average cost in a country of water for industrial purposes. The resolution of the map is 5x5km');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://effis.jrc.ec.europa.eu/static/effis_current_situation/public/" target="_blank">Burnt area maps - EFFIS Damage Assessment <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Data produced by the EFFIS Damage Assessment module, aimed to provide assessment of the burnt areas in Europe at the end of each fire season. Maps of burnt areas are derived from the classification of satellite images, outlining forest fires with a final size of at least 50 ha. Since fire events of this size occur mostly in Southern Europe, the extent covered is limited to this area.These maps are further analyzed in conjunction with the Corine Land Cover database (CLC2000) to estimate the damage to forests and other land cover types. Maps are available from the year 2000 onward.The EFFIS Damage Assessment module provides a harmonized system allowing the comparison of fire damages between the different regions of the European Union.');"><i class="material-icons info">info</i></button></li>
+									<li><a href="https://esdac.jrc.ec.europa.eu/content/maps-storing-and-filtering-capacity-soils-europe" target="_blank">Maps of the Storing and Filtering Capacity of Soils in Europe <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('This dataset (2016) contains 10 maps that relate to the soil's storing and filtering capacity in Europe (the EU only): cation storing capacity (STOR_CAPCA), cation filtering capacity (FILT_CAPCA), anion storing capacity (STOR_CAPAN), anion filtering capacity (FILT_CAPAN), solids and pathogenic microorganisms storing capacity (STOR_CAPSO), solids and pathogenic microorganisms filtering capacity (FILT_CAPSO), non-polar organic chemicals storing capacity (STOR_CAPNP), non-polar organic chemicals filtering capacity (FILT_CAPNP), nonaqueous Phase Liquids (NAPL) storing capacity (STOR_NAPL), nonaqueous Phase Liquids (NAPL), filtering capacity (FILT_NAPL). As input, variables from the European Soil Database have been used.');"><i class="material-icons info">info</i></button></li>
+									<li><a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR272" target="_blank">Reference maps in Bangladesh (2018-03-08) <i class="material-icons exit_to_app" style=" font-size: 15px;">exit_to_app</i></a><button class="b_info" onclick="showInfo('Activation time (UTC): 2018-03-08 14:20:00 Event time (UTC): 2018-03-08 00:00:00 Event type: Humanitarian (Population displacement (IDP)). Activation reason: The Danish Emergency Management Agency (DEMA) is planning to build a coordination hub in Bangladesh in relation with Rohingya refugees. The Copernicus EMS Rapid Mapping Service has been triggered to produce Reference Maps based on recent optical satellite imagery that will be used for the initial assessment on the Areas of Interest. Reference maps produced: 5 Delineation maps produced: 0 Grading maps produced: 0. Copernicus Emergency Management Service - Mapping is a service funded by European Commission aimed at providing actors in the management of natural and man-made disasters, in particular Civil Protection Authorities and Humanitarian Aid actors, with mapping products based on satellite imagery.');"><i class="material-icons info">info</i></button></li>
+									<!--li><a href="" target="_blank"></a></li-->
+								</ul>
+							</li>
+							<li><a href="#" class="desplegable" title="" id="european_enviromental_agency">European Environmental Agency</a></li>
+							<li>
+								<a href="#" class="desplegable" title="Topic name" id="publisher_council">Council of the European Union<i class="material-icons">keyboard_arrow_down</i></a>
+								<ul class="subnavegador">
+									<li>
+										<input type="radio" name="radioPublisher" id="cb6" class="cb" /><label for="cb6">EIOPA - Insurance Statistics - Solo Quarterly</label><a href="#"><button id="b_info_1" class="b_info" onclick="showInfo('<p>Publisher: European Insurance and Occupational Pensions Authority</p><p>The own fund statistics provide an extract of key data items from the Solvency II template S.23.01 (please see the annotated reporting templates available on the EIOPA website to see the full list of reporting templates). For information and explanation of each individual item, please refer to the QRT instruction files.</p><p>URI: https://eiopa.europa.eu/Publications/Insurance%20Statistics/SQ_Own_Funds.csv</p><p>Release Date: 2017-10-04</p>');"><i class="material-icons info">info</i></button></a>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb7" class="cb" /><label for="cb7">AMECO_10: Balances with the Rest of the World (National Accounts)</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Economic and Financial Affairs</p><p>10 Statistics on balances with the rest of the world (national accounts)</p><p>URI: http://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco10.zip</p><p>Release Date: 2017-06-12</p>')"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb8" class="cb" /><label for="cb8">Average Revenue per User (ARPU) in the Retail Mobile Market (CSV)</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Communications Networks, Content and Technology</p><p>Zipped and CSV-formatted entire parent dataset: digital-agenda-scoreboard-key-indicators</p><p>URI: http://digital-agenda-data.eu/download/digital-agenda-scoreboard-key-indicators.csv.zip</p><p>Release Date: 2014-05-22</p>');"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb9" class="cb" /><label for="cb9">Average Revenue per User (ARPU) in the Retail Mobile Market (SPARQL)</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Communications Networks, Content and Technology</p><p>All indicator observations in CSV format. A simple query that returns table-file having a flat structure, with one row for each statistical observation and one column for each dimension or attribute.</p><p>URI: http://data.europa.eu/euodp/en/data/dataset/NaUJDKauIkIWX0YFtDz86Q/resource/4b62ff6a-0789-4295-b882-6652725bcf3e</p><p>Release Date: 2014-05-22</p>');"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb10" class="cb" /><label for="cb10">Safe and secure truck parking data according to Commission delegated Regulation (EU) No 885/2013</label><button class="b_info" onclick="showInfo('<p>Publisher: Directorate-General for Mobility and Transport</p><p>In accordance with Article 5 of Commission delegated Regulation (EU) No 885/2013 in the framework of the ITS Directive 2010/40/EU public or private parking operators and service providers shall share and exchange data related to safe and secure parking areas through a national or international access point. This dataset includes static data provided by Member States in accordance to delegated regulation 885/2013 in DATEX II format. The responsibility for the data quality of the data lies with the respective Member States.</p><p>eurovoc domains: Transport</p><p>URI: http://data.europa.eu/euodp/en/data/dataset/etpa</p><p>Status: Completed</p><p>Geographical Coverage: Netherlands, Switzerland, Slovenia, Sweden, Austria, Czech Republic, Spain, Denmark, Germany, Belgium</p>');"><i class="material-icons info">info</i></button>
+									</li>
+									<li>
+										<input type="radio" name="radioPublisher" id="cb11" class="cb" /><label for="cb11">2017 PREDICT Dataset</label><button class="b_info" onclick="showInfo('<p>Publisher: Joint Research Centre.</p><p>PREDICT includes statistics on ICT industries and their R&D in Europe since 2006. The project covers major world competitors including 40 advanced and emerging countries - the EU28 plus Norway, Russia and Switzerland in Europe, Canada, the United States and Brazil in the Americas, China, India, Japan, South Korea and Taiwan in Asia, and Australia -. The dataset provides indicators in a wide variety of topics, including value added, employment, labour productivity and BERD, distinguishing fine grain economic activities in ICT industries (up to 22 individual activities, 14 of which at the class level, i.e. at 4 digits in the ISIC/NACE classification), media and content industries (15 activities, 11 of them at 4 digit level) and at a higher level of aggregation for all the other industries in the economy. It also produces data on Government financing of R&D in ICTs, and total R&D expenditure. Nowcasting of more relevant data in these domains is also performed until a year before the reference date, while time series go back to 1995. ICTs determine competitive power in the knowledge economy. The ICT sector alone originates almost one fourth of total Business expenditure in R&D (BERD) for the aggregate of the 40 economies under scrutiny in the project. It also has a huge enabling role for innovation in other technological domains. This is reflected at the EU policy level, where the Digital Agenda for Europe in 2010 was identified as one of the seven pillars of the Europe 2020 Strategy for growth in the Union; and the achievement of a Digital Single Market (DSM) is one of the 10 political priorities set by the Commission since 2015.</p><p>eurovoc domains: European Union, International organisations</p><p>URI: https://data.europa.eu/euodp/data/dataset/jrc-predict-predict2017-core</p><p>Status: Completed</p><p>Modified Date: 2017-05-10</p><p>language: English</p>');"><i class="material-icons info">info</i></button>
+									</li>
+								</ul>
+							</li>
+                        </ul>
+                    </li>
+					<li id="filters_li" style="display:none;"><a href="#" class="desplegable" title="Topic name" id="publisher"><b>Filters</b><i class="material-icons">keyboard_arrow_down</i></a>
+						<ul class="subnavegador checkbox" id="filter_ul">
+							<li>
+								<input type="radio" name="radioFilters" id="cb4_1" class="cb" /><label for="cb4_1">2016</label>
+							</li>
+							<li>
+								<input type="radio" name="radioFilters" id="cb4_2" class="cb" /><label for="cb4_2">2017</label>
+							</li>
+						</ul>
+					</li>
+                </ul>
+
+                <div id="bottom_menu">Powered by EC Web Tools</div>               
+                
+            </div>
+
+            <div id="map">
+
+                <script type="application/json">
+                    {
+						"service": "map",
+						"version": "2.0",
+						"custom": "js/custom.js"                    
+                    }
+                </script>
+            </div>
+
+            <iframe id="iframe" ></iframe>
+            
+            <div class="menu_der" id="menu_der">
+                <div class="full_screen">
+                    <button id='full_screen' ><i class="material-icons">zoom_out_map</i></button>
+                </div>
+
+                <div class="home">
+                    <button id='home' ><i class="material-icons">home</i></button>   
+                </div>
+
+                <div class="zoom">
+                    <button id='zoomIn' ><i class="material-icons">add</i></button>  
+                    <button  id='zoomOut'><i class="material-icons">remove</i></button>
+                </div>
+
+                <div class="layers" style="display:none">
+        
+                    <input type="checkbox" name="b" id="b_layers" class="cb">
+                    <label for="b_layers"><i id="layers" class="material-icons">layers</i></label>
+                </div>
+            </div>
+
+            <div id="legend">
+                Legend
+                <ul>
+                    <li>Dataset 1</li>
+                    <li>Dataset 2</li>
+                    <li>Dataset 3</li>
+
+                </ul>
+            </div>
+        </div>
+		
+		
+<div id="overlay">
+  <div id="overlay_text"></div>
+</div>
+		
+        <script src="js/controles_mapa.js"> </script>
+        
+	</body>
+</html>
