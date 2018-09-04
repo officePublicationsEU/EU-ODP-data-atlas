@@ -1,3 +1,4 @@
+// EUPL license v1.2 applies
 mapconfig = {
 	"center": [
 		57,
