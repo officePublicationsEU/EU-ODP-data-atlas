@@ -1,3 +1,4 @@
+// EUPL license v1.2 applies
 /*
 document.getElementById("back_atlas").addEventListener("click", function ()
 {   
